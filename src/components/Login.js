@@ -30,23 +30,45 @@ export const Login = () => {
 
   return (
     <div className="container">
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>Username</label>
-        <input
-          type="email"
-          name="email"
-          value={loginUser.email}
-          onChange={handleOnChange}
-        />
-        <input
-          type="password"
-          name="password"
-          value={loginUser.password}
-          onChange={handleOnChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {user && <input type="button" onClick={handleLogOut} value="Logout" />}
+      <div className="panel panel-default">
+        <div className="panel-body">
+          <form className="form-control" onSubmit={(e) => handleSubmit(e)}>
+            <div className="col-md-12">
+              <label className="control-label">Username</label>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                value={loginUser.email}
+                onChange={handleOnChange}
+              />
+            </div>
+            <div className="col-md-12">
+              <label className="control-label">Password</label>
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={loginUser.password}
+                onChange={handleOnChange}
+              />
+            </div>
+            <div className="col-md-12">
+              <button className="btn btn-sm btn-success" type="submit">
+                Submit
+              </button>
+            </div>
+          </form>
+          {user && (
+            <input
+              className="btn btn-sm btn-danger"
+              type="button"
+              onClick={handleLogOut}
+              value="Logout"
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 };
